@@ -41,6 +41,12 @@ def draw_picture(width, height):
     sg.set_outline_color("blue")
     sg.set_line_thickness(8)
     sg.draw_curve(river_points)
+
+
+
+    sg.set_fill_color("#8B4513")
+    sg.set_line_thickness(3)
+    sg.draw_palm_tree(450, 350, 130, "#228B22")
     
 
 if __name__ == "__main__":
