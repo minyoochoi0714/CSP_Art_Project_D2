@@ -176,9 +176,55 @@ def draw_curve(points_list):
         fill=_outline_color, 
         width=_line_thickness
     )
-    
 
 def draw_text(x, y, text_string, font_size=16):
     """Draws text on the screen with the top-left corner at (x, y)."""
     _canvas.create_text(x, y, text=text_string, fill=_fill_color, 
                         anchor="nw", font=("Arial", font_size))
+
+
+def draw_palm_tree(x, y, height, leaves_color="green"):
+    """
+    Draws a palm tree with layered fronds and extra large coconuts.
+    
+    AI Attribution:
+    Generated using Gemini.
+    Student Prompt: "do not add one more layer of leave, just bigger coconut"
+    """
+    trunk_width = height * 0.08
+    trunk_height = height * 0.72
+    top_y = y - trunk_height
+    
+    # Wide leaf dimensions
+    frond_width = height * 0.7  
+    frond_height = height * 0.25
+    
+    # SUPERSIZED coconuts (Increased multiplier for maximum impact)
+    coco_radius = height * 0.11
+    
+    # 1. Draw the trunk
+    _canvas.create_polygon(
+        x - trunk_width // 2, y,
+        x + trunk_width // 2, y,
+        x + (trunk_width // 4), top_y,
+        x - (trunk_width // 4), top_y,
+        fill=_fill_color, outline=_outline_color, width=_line_thickness
+    )
+    
+    # 2. LAYER 1: Lower, dropping leaves
+    _canvas.create_arc(x - frond_width * 0.9, top_y, x, top_y + frond_height * 1.5, 
+                      start=15, extent=110, style="arc", outline=leaves_color, width=_line_thickness + 2)
+    _canvas.create_arc(x, top_y, x + frond_width * 0.9, top_y + frond_height * 1.5, 
+                      start=55, extent=110, style="arc", outline=leaves_color, width=_line_thickness + 2)
+    
+    # 3. LAYER 2: Mid-level horizontal extending leaves
+    _canvas.create_arc(x - frond_width, top_y - frond_height, x, top_y + frond_height, 
+                      start=0, extent=130, style="arc", outline=leaves_color, width=_line_thickness + 2)
+    _canvas.create_arc(x, top_y - frond_height, x + frond_width, top_y + frond_height, 
+                      start=50, extent=130, style="arc", outline=leaves_color, width=_line_thickness + 2)
+
+    # 4. Draw EXTRA BIG, overlapping coconuts right in the middle cluster
+    _canvas.create_oval(x - coco_radius * 1.1, top_y - coco_radius * 0.2, x, top_y + coco_radius * 1.5, fill="#5C4033", outline=_outline_color, width=_line_thickness)
+    _canvas.create_oval(x, top_y - coco_radius * 0.2, x + coco_radius * 1.1, top_y + coco_radius * 1.5, fill="#5C4033", outline=_outline_color, width=_line_thickness)
+    _canvas.create_oval(x - coco_radius // 2, top_y + coco_radius * 0.4, x + coco_radius // 2, top_y + coco_radius * 2.0, fill="#4A3329", outline=_outline_color, width=_line_thickness)
+    
