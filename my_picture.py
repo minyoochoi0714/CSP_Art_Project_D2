@@ -12,36 +12,18 @@ def draw_picture(width, height):
     triangle_height = height/5
     triangle_width = width / 3
     
-    # Draw the tesselation
-    # code for red triangles
-    sg.set_fill_color(colors[0])
+    # call fill sky
+    sg.set_fill_color("#030bfc")
+    sg.fill_rectangle(0,0,600,210)
+    sg.set_fill_color("#0345fc")
+    sg.fill_rectangle(0,50,600,200)
+    sg.set_fill_color("#036ffc")
+    sg.fill_rectangle(0,80,600,190)
+    sg.set_fill_color("#038cfc")
+    sg.fill_rectangle(0,100,600,180)
+    sg.set_fill_color("#03b5fc")
+    sg.fill_rectangle(0,120,600,170)
     
-    # call fill
-    sg.fill_circle(450, 50,50)
-
-    # draw a mountain
-    sg.set_fill_color("#827e7e") # relatively dark gray
-    sg. fill_triangle(300, 150, 400, 20, 350, 150)
-    sg.set_fill_color("#c7c1c1") # lighter gray
-    sg. fill_triangle(350, 150, 400, 20, 550, 150)
-
-    # draw horizon
-    sg.set_outline_color("black")
-    sg.set_line_thickness(1)
-    sg.draw_line(0, 150, 600, 150)
-    
-    # Define the points the curve should bend through
-    river_points = [
-        (100, 150), # Start point
-        (300, 200), # Bends towards here
-        (200, 350), # Bends back here
-        (500, 500)  # End point
-    ]
-
-    sg.set_outline_color("blue")
-    sg.set_line_thickness(8)
-    sg.draw_curve(river_points)
-
 
 
     sg.set_fill_color("#8B4513")
