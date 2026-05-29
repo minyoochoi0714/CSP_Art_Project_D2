@@ -29,6 +29,11 @@ def draw_picture(width, height):
     sg.set_fill_color("#8B4513")
     sg.set_line_thickness(3)
     sg.draw_palm_tree(450, 350, 130, "#228B22")
+
+    # 2. Draw your clean, wide beach scene!
+    sg.draw_beach_scene(width, height, "light blue", "blue", "orange")
+    
+
     
 
 if __name__ == "__main__":
