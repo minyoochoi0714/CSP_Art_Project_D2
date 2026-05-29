@@ -12,6 +12,11 @@ def draw_picture(width, height):
     triangle_height = height/5
     triangle_width = width / 3
     
+    
+    # 2. Draw your clean, wide beach scene!
+    sg.draw_beach_scene(width, height, "light blue", "blue", "orange")
+    
+    
     # call fill sky
     sg.set_fill_color("#030bfc")
     sg.fill_rectangle(0,0,600,210)
@@ -30,12 +35,12 @@ def draw_picture(width, height):
     sg.set_line_thickness(3)
     sg.draw_palm_tree(450, 350, 130, "#228B22")
 
-    # 2. Draw your clean, wide beach scene!
-    sg.draw_beach_scene(width, height, "light blue", "blue", "orange")
-    
-
+    sg.set_fill_color("#8B4513")
+    sg.set_line_thickness(3)
+    sg.draw_palm_tree(500, 300, 100, "#228B22")
     
 
 if __name__ == "__main__":
     # Launch the wrapper; only edit starting dimensions of canvas if you would like to
     sg.start(draw_picture, 600, 400)
+
